@@ -1,0 +1,88 @@
+C:
+ #include <stdio.h>
+int main() {
+    int n1, n2, max;
+    printf("Enter two positive integers: ");
+    scanf("%d %d", &n1, &n2);
+
+    // maximum number between n1 and n2 is stored in min
+    max = (n1 > n2) ? n1 : n2;
+
+    while (1) {
+        if (max % n1 == 0 && max % n2 == 0) {
+            printf("The LCM of %d and %d is %d.", n1, n2, max);
+            break;
+        }
+        max++;
+    }
+    return 0;
+}
+
+c++:
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n1, n2, max;
+    cout<<"Enter two positive integers: ";
+    cin>>n1;
+    cin>>n2;
+
+    // maximum number between n1 and n2 is stored in min
+    max = (n1 > n2) ? n1 : n2;
+
+    while (1) {
+        if (max % n1 == 0 && max % n2 == 0) {
+            cout<<"The LCM of "<<n1<<" And "<< n2<<" is "<< max<<endl;
+            break;
+        }
+        max++;
+    }
+    return 0;
+}
+
+
+JAVA:
+
+import  java.util.Scanner;
+    // maximum number between n1 and n2 is stored in 
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner in =new Scanner(System.in);
+		System.out.println("Enter the number:");
+		int n1=in.nextInt();
+		System.out.println("Enter the number:");
+		int n2=in.nextInt();
+	int	max = (n1 > n2) ? n1 : n2;
+
+    for(int i = max;i <= n1 * n2;i += n1) {
+        if (max % n1 == 0 && max % n2 == 0) {
+            System.out.println("The LCM of "+n1+" And "+ n2+" is "+ max);
+            break;
+        }
+        max++;
+    }
+	}
+}
+
+
+Python:
+
+num1 = int(input("Enter first number:"))
+num2 = int(input("Enter Second Number:"))
+
+
+
+if num1 > num2:
+        larger = num1
+else:
+        larger = num2
+while True:
+    if (larger % num1 == 0) and (larger % num2 == 0):
+        lcm = larger
+        break
+    larger = larger + 1
+print("LCM of two given number:{}".format(lcm))
+
