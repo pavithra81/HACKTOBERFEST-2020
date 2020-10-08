@@ -1,0 +1,94 @@
+import java.util.Scanner;
+class Main {
+  public static void main(String[] args) {
+    Scanner in= new Scanner(System.in);
+    Bicycle bicycle = new Bicycle("Bianchi","Green",0);
+    System.out.println("【Bicycle Info】");
+    bicycle.printData();
+    System.out.println("-----------------");
+    System.out.print("Enter distance to move: ");
+    int km = in.nextInt();
+    bicycle.run(km);
+    System.out.println("=================");
+    Car car = new Car("Ferrari","Red",0,100);
+    System.out.println("【Car Info】");
+    car.printData();
+     System.out.println("-----------------");
+     System.out.print("Enter distance to move: ");
+     int carDistance = in.nextInt();
+     car.run(carDistance);
+     System.out.println("-----------------");
+     System.out.print("Enter amount to refuel:");
+     int liter = in.nextInt();
+     car.charge(liter);
+  }
+}
+
+class Car{
+  private String name;
+  private String color;
+  private int distance;
+  private int fuel;
+  Car(String name,String color,int distance,int fuel){
+    this.name = name ;
+    this.color = color ;
+    this.distance = distance ;
+    this.fuel = fuel;
+  }
+  public void printData(){
+    System.out.println("Name:" + this.name);
+    System.out.println("Color:" + this.color);
+    System.out.println("Distance:" + this.distance + "km");
+    System.out.println("Fuel: " + this.fuel + "L");
+  }
+  
+  public void run(int distance){
+    System.out.println("Moving " + distance +"km ...");
+    if(distance<=fuel){
+      this.distance += distance;
+      this.fuel  -= distance;
+    }
+    else{
+      System.out.println("Not enough fuel");
+    }
+     System.out.println("Distance: " + this.distance  + "km" );
+     System.out.println("Fuel:" +this.fuel + "L");
+  }
+  
+  public void charge(int liter ){
+    System.out.println("Adding "+ liter + "L ...");
+    if(liter <= 0){
+      System.out.println("No fuel added");
+    }else if(liter + this.fuel >= 100){
+      System.out.println("Tank now full");
+      this.fuel = 100;
+    }
+    else{
+      this.fuel += liter ;
+    }
+    System.out.println("Fuel:" + this.fuel + "L" );
+    
+  }
+}
+
+class Bicycle{
+  private String name;
+  private String color;
+  private int distance;
+  Bicycle(String name,String color,int distance){
+    this.name = name ;
+    this.color = color ;
+    this.distance = distance ;
+  }
+  public void printData(){
+    System.out.println("Name:" + this.name);
+    System.out.println("Color:" + this.color);
+    System.out.println("Distance:" + this.distance + "km");
+  }
+  
+  public void run(int distance){
+    System.out.println("Moving " + distance +"km ...");
+    this.distance += distance;
+     System.out.println("Distance: " + this.distance  + "km" );
+  }
+}
